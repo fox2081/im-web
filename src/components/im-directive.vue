@@ -24,7 +24,8 @@ export default {
   },
   methods: {
     initDirective () {
-      this.config.showInit = true
+      let vm = this
+      vm.config.showInit = true
     }
   },
   created () {
