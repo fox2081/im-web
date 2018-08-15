@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/im-icon.png" @click="imConfig.initDirective()" alt="">
     <im-directive v-bind:config="imConfig"></im-directive>
   </div>
 </template>
@@ -16,10 +16,12 @@ export default {
   data () {
     return {
       imConfig: {
-        a: 1
+        a: 1,
+        showInit: false
       }
     }
-  }
+  },
+  methods: {}
 }
 </script>
 
@@ -28,11 +30,6 @@ export default {
   @import "assets/css/common";
 
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+    font-family: 'Microsoft Yahei';
   }
 </style>

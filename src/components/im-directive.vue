@@ -1,13 +1,37 @@
 <template>
   <div class="im-main">
-    hola {{config.a}}
+    <im-init v-if="config.showInit"></im-init>
+    <im-window></im-window>
+    <im-notice></im-notice>
   </div>
 </template>
 
 <script>
+import imInit from './dir/im-init'
+import imWindow from './dir/im-window'
+import imNotice from './dir/im-notice'
+
 export default {
   name: 'imDirective',
-  props: ['config']
+  components: {
+    imInit,
+    imWindow,
+    imNotice
+  },
+  props: ['config'],
+  data () {
+    return {}
+  },
+  methods: {
+    initDirective () {
+      this.config.showInit = true
+    }
+  },
+  created () {
+    let vm = this
+    vm.config.showInit = false
+    vm.config.initDirective = this.initDirective
+  }
 }
 </script>
 
