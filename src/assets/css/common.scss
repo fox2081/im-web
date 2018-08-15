@@ -1,0 +1,83 @@
+.clear {
+  clear: both;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.disabled {
+  color: #e0e0e0;
+  border-color: #e0e0e0;
+  text-decoration: none;
+  cursor: default;
+}
+
+.f-l {
+  float: left;
+}
+
+.f-r {
+  float: right;
+}
+
+.p-a {
+  position: absolute;
+}
+
+.p-r {
+  position: relative;
+}
+
+.p-f {
+  position: fixed;
+}
+
+.text-of {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.max {
+  overflow: hidden;
+}
+
+.max,
+.max p,
+.max pre,
+.max li,
+.max ul,
+.max ol,
+.max div,
+.max span,
+.max b,
+.max em,
+.max strong,
+.max i,
+.max a,
+.max h1,
+.max h2,
+.max h3,
+.max h4,
+.max h5,
+.max h6,
+.max img {
+  max-width: 100%
+}
+
+.hide {
+  display: none;
+}
+
+// iconfont抗锯齿
+.iconfont{
+  font-weight: 100;
+  -webkit-text-stroke-width: 0.2px;
+}
