@@ -10,6 +10,33 @@
 import imInit from './dir/im-init'
 import imWindow from './dir/im-window'
 import imNotice from './dir/im-notice'
+import ImCore from 'im-core/src/im-core'
+
+function init () {
+  let IM = new ImCore({
+    showLog: true
+  })
+
+  console.log('IM', IM)
+
+  IM.api.connect()
+
+  IM.on('error', (e) => {
+    console.log('get event error:', e)
+  })
+
+  IM.on('open', (e) => {
+    console.log('get event open:', e)
+    IM.send({
+      i: 1,
+      t: 1,
+      r: ['u1'],
+      c: 'Hola'
+    })
+  })
+}
+
+init()
 
 export default {
   name: 'imDirective',

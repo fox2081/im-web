@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div class="im-body">
+    <div></div>
+  </div>
 </template>
 
 <script>

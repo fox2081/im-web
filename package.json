@@ -13,6 +13,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "im-core": "git+https://github.com/fox2081/im-core.git",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-timeago": "^5.0.0"
