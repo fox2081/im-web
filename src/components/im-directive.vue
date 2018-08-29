@@ -21,11 +21,11 @@ function init () {
 
   IM.api.connect()
 
-  IM.on('error', (e) => {
+  IM.wsOn('error', (e) => {
     console.log('get event error:', e)
   })
 
-  IM.on('open', (e) => {
+  IM.wsOn('open', (e) => {
     console.log('get event open:', e)
     IM.send({
       i: 1,
@@ -33,6 +33,10 @@ function init () {
       r: ['u1'],
       c: 'Hola'
     })
+  })
+
+  IM.on('aaa', (args) => {
+    console.log('aaa', args)
   })
 }
 
@@ -55,10 +59,40 @@ export default {
       vm.config.showInit = true
     }
   },
-  created () {
-    let vm = this
-    vm.config.showInit = false
-    vm.config.initDirective = this.initDirective
+  mounted () {
+    let _self = this
+    _self.config.showInit = false
+    _self.config.initDirective = this.initDirective
+
+    function initIm () {
+      let IM = new ImCore({
+        showLog: true
+      })
+
+      console.log('IM', IM)
+
+      IM.api.connect()
+
+      IM.on('error', (e) => {
+        console.log('get event error:', e)
+      })
+
+      IM.on('open', (e) => {
+        console.log('get event open:', e)
+        IM.send({
+          i: 1,
+          t: 1,
+          r: ['u1'],
+          c: 'Hola'
+        })
+      })
+    }
+
+    function init () {
+      initIm()
+    }
+
+    init()
   }
 }
 </script>
