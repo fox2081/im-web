@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'message-record',
+  name: 'im-message-record',
   props: []
 }
 </script>

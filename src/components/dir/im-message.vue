@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'message'
+  name: 'im-message'
 }
 </script>
 
