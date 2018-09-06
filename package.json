@@ -16,7 +16,8 @@
     "im-core": "git+https://github.com/fox2081/im-core.git",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vue-timeago": "^5.0.0"
+    "vue-timeago": "^5.0.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
