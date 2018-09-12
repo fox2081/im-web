@@ -12,36 +12,6 @@ import imWindow from './dir/im-window'
 import imNotice from './dir/im-notice'
 import ImCore from 'im-core/src/im-core'
 
-function init () {
-  let IM = new ImCore({
-    showLog: true
-  })
-
-  console.log('IM', IM)
-
-  IM.api.connect()
-
-  IM.wsOn('error', (e) => {
-    console.log('get event error:', e)
-  })
-
-  IM.wsOn('open', (e) => {
-    console.log('get event open:', e)
-    IM.send({
-      i: 1,
-      t: 1,
-      r: ['u1'],
-      c: 'Hola'
-    })
-  })
-
-  IM.on('aaa', (args) => {
-    console.log('aaa', args)
-  })
-}
-
-init()
-
 export default {
   name: 'imDirective',
   components: {
@@ -64,19 +34,16 @@ export default {
     _self.config.showInit = false
     _self.config.initDirective = this.initDirective
 
+    let IM = new ImCore({
+      showLog: true
+    })
+
     function initIm () {
-      let IM = new ImCore({
-        showLog: true
-      })
-
       console.log('IM', IM)
-
       IM.api.connect()
-
       IM.on('error', (e) => {
         console.log('get event error:', e)
       })
-
       IM.on('open', (e) => {
         console.log('get event open:', e)
         IM.send({
@@ -86,6 +53,26 @@ export default {
           c: 'Hola'
         })
       })
+
+      IM.on('m', (data) => {
+        msgHandler(data)
+      })
+    }
+
+    let tmpPromise = function () {
+      return new Promise(resolve => resolve())
+    }
+
+    function msgHandler (data) {
+      let sid = data.s
+      let tmpP = tmpPromise().then(() => {
+        return IM.api.getUserInfo(sid).then(rs => {
+          console.log('New user info: ', rs)
+        })
+      })
+      tmpPromise = function () {
+        return tmpP
+      }
     }
 
     function init () {
